@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Home Page Replica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #131212;
+    }
+
+    header {
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color:#131212;
+      color: white;
+    }
+    .categorie-bar-container {
+            width: 100%; /* Full width of the container */
+            overflow: hidden; /* Hide overflow to prevent scrolling of the entire screen */
+            background-color: #131212; /* Background color */
+
+        }
+    .category-bar {
+            display: flex; /* Arrange children in a row */
+            overflow-x:auto; /* Enable horizontal scrolling if needed */
+            white-space: nowrap; /* Prevent items from wrapping to the next line */
+            background-color:#131212; /* Background color */
+            padding: 10px 0; /* Padding for spacing */
+            border-bottom: 1px solid black; /* Optional bottom border */
+            scroll-behavior: smooth; /* Smooth scrolling effect */
+        }
+    .category-bar-item {
+            display: inline-block;
+            padding: 10px 20px; /* Padding inside each category */
+            margin: 0 10px; /* Margin between categories */
+            background-color: #353131; /* Background color for categories */
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            color: white;
+            font-size: 15px;
+        }
+        .scroll-wheel::-webkit-scrollbar {
+            height: 8px; /* Height of horizontal scrollbar */
+        }
+
+        .scroll-wheel::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color of the scrollbar thumb */
+            border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+        }
+
+        .scroll-wheel::-webkit-scrollbar-thumb:hover {
+            background-color: #555; /* Color of the scrollbar thumb on hover */
+        }
+        .category-bar-item:hover {
+          background-color: #e0e0e0; /* Slightly darker background on hover */}
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid grey;
+      border-radius: 20px;
+      background-color: #131212;
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      background-color: #e6e6e6;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .image-button {
+    background-color:transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer; 
+}
+
+.image-button img {
+    width: 30px;
+    height: auto;
+}
+.download-button {
+    background-color:transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer; 
+}
+
+.download-button img {
+    width: 160px;
+    height: auto;
+}
+.sidebar-images{
+  padding: 0;
+  background-color: transparent;
+  border:none;
+}
+.sidebar-images img{
+  height: auto;
+  width: 20px;
+  
+}
+
+    .user-menu {
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #131212;
+      padding: 10px;
+      box-shadow: 1px 0 5px rgba(241, 239, 239, 0.1);
+    }
+    .sidebar ul {
+      list-style-type: style none;;
+      padding: 0px 10px;
+    }
+
+    .sidebar li {
+      color: white;
+      padding: 10px; /* Padding for list items */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    }
+    .sidebar ul li:hover {
+    background-color: rgba(128, 128, 128, 0.5); /* Grey background with 50% opacity */
+    border-radius: 10px;
+
+}
+    .sidebar hr {
+            margin: 10px 0; /* Margin around the divider line */
+            border: none; /* No border */
+            border-top: 1px solid #ccc; /* Solid line with light gray color */
+        }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap:20px;
+    }
+
+    .video-item {
+      background-color:#131212;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(8, 8, 8, 0.1);
+      overflow:auto;
+      height: 330px;
+    }
+
+    .video-item img {
+      width: 100%;
+      display:block;
+      height: 200px;
+      border-radius: 5px;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    .video-item:hover img {
+      opacity: 0.7;
+    }
+    .video-info {
+      padding: 10px;
+    }
+
+    .video-info h3 {
+      margin: 0;
+      font-size: 18px;
+      color: white;
+      cursor:pointer;
+    }
+
+    .video-info p {
+      margin: 5px 0;
+      color: #838080;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="image-button">
+      <img src="bars.png" alt="voice command">
+    </button>
+    <img src="youtube.png" width="120px">
+    <input type="text" placeholder="Search" class="search-bar">
+    <button class="image-button">
+      <img src="magnifi.png" alt="Button Image">
+    </button>
+    <button class="image-button">
+      <img src="mic.png" alt="voice command">
+    </button>
+    <button class="download-button">
+      <img src="download.png" alt="voice command">
+    </button>
+  </header>
+  
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+      <div class="sidebar-images">
+        <li><img src="home.png"> Acceuil</li>
+        <li> <img src="shorts.png">Shorts</li>
+        <li> <img src="subs.png" ></im>Abonnement</li>
+      </ul>
+      <hr>
+      <ul>
+        <div class="sidebar-images">
+          <li>Vous > </li>
+          <li><img src="chaine.png">Votre Chaine</li>
+          <li><img src="historique.png">Historique</li>
+          <li><img src="play.png">Playlists</li>
+          <li><img src="vos videos.png">Vos Vidéos</li>
+          <li><img src="reg.png">A Regarder plus tard</li>
+          <li><img src="like.png">Vidéos "J'aime"</li>
+        </div>
+      </ul>
+    </div>
+    <main class="main-content">
+      <div class="categorie-bar-container">
+        <div class="category-bar">
+          <div class="category-bar-item">Tous</div>
+          <div class="category-bar-item">Jeux Vidéos</div>
+          <div class="category-bar-item">Valorant</div>
+          <div class="category-bar-item">Musique</div>
+          <div class="category-bar-item">Mix</div>
+          <div class="category-bar-item">Patients</div>
+          <div class="category-bar-item">Biomécanique</div>
+          <div class="category-bar-item">En Direct</div>
+          <div class="category-bar-item">Ordinateurs</div>
+          
+    </div>
+    </div>
+      <div class="video-grid">
+        <!-- Video thumbnails -->
+        <div class="video-item">
+          <img src="thumbnail.webp" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Game-Highlights</h3>
+            <p>Football4Life</p>
+            <p>1M views • 1 day ago</p>
+          </div>
+        </div>
+        <div class="video-item">
+          <img src="mbappe.jpg" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Best Of Mbappe 2022</h3>
+            <p>Ici c'est paris</p>
+            <p>500K views • 3 days ago</p>
+          </div>
+        </div>
+        <div class="video-item">
+          <img src="cristiano.jpg" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Cristiano's Best Goals</h3>
+            <p>Olympique Glet Glet</p>
+            <p>200K views • 1 week ago</p>
+          </div>
+        </div>
+        <div class="video-item">
+          <img src="liverpool.jpg" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Liverpool's History: All You Need To Know</h3>
+            <p>YNWA</p>
+            <p>1.5M • 1 week ago</p>
+        </div>
+        </div>
+        <div class="video-item">
+          <img src="liverpool.jpg" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Liverpool's History: All You Need To Know</h3>
+            <p>YNWA</p>
+            <p>1.5M • 1 week ago</p>
+        </div>
+        </div>
+        <div class="video-item">
+          <img src="thumbnail.webp" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Game-Highlights</h3>
+            <p>Football4Life</p>
+            <p>1M views • 1 day ago</p>
+          </div>
+        </div>
+        <div class="video-item">
+          <img src="mbappe.jpg" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Best Of Mbappe 2022</h3>
+            <p>Ici c'est paris</p>
+            <p>500K views • 3 days ago</p>
+          </div>
+        </div>
+        <div class="video-item">
+          <img src="cristiano.jpg" alt="Video Thumbnail">
+          <div class="video-info">
+            <h3>Cristiano's Best Goals</h3>
+            <p>Olympique Glet Glet</p>
+            <p>200K views • 1 week ago</p>
+          </div>
+        </div>
